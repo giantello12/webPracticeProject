@@ -6,7 +6,7 @@ function start() {
     numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
 
     while(numberOfFilms == '' || numberOfFilms == null || isNaN(numberOfFilms)) {
-        numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
+        numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '').trim();
     }
 }
 
@@ -20,8 +20,8 @@ const personaMovieDB = {
 
 function rememberMyFilms() {
     for (let i = 0; i < 2; i++){
-        const a = prompt('Один из последних просмотренных фильмов'),
-              b = prompt('На сколько оцените его?');
+        const a = prompt('Один из последних просмотренных фильмов').trim(),
+              b = prompt('На сколько оцените его?').trim();
         
         if (a != null && b != null && a.length < 50 && b.length < 50 && a != '' && b != ''){
             personaMovieDB.movies[a] = b;        
@@ -52,7 +52,7 @@ function showMyDB(hidden) {
 
 function writeYourGenres() {
     for (let i = 1; i <= 3; i++) {     
-        const genre = prompt(`Ваш любимый жанр под номером ${i}`);
+        const genre = prompt(`Ваш любимый жанр под номером ${i}`).trim();
         
         if (genre != null && genre.length < 50 && genre != '') {
             personaMovieDB.genres[i - 1] = genre;      
